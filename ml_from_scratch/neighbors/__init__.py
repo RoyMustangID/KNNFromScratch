@@ -1,12 +1,23 @@
 import numpy as np
 
 class KNeighborsRegression():
+    """
+    Building a KNN class for regression
+    """
+    
     def __init__(self, k_neighbor=5, p=2, rounding = False):
+        """
+        Class initiation
+        k_neighbor = number of neighbor calculated for average
+        p = the variable to determine the distance measuring method. p = 2 for Eucladian, p = 1 for Manhattan
+        rounding = determine whether the results will be rounded to nearest integer
+        """
         self.k_neighbor = k_neighbor
         self.p = p
         self.rounding = rounding
 
     def distance(self, point1, point2, point2value, p):
+        
         distance_value = np.power(np.sum((np.absolute(point1 - point2))**p), 1/p)
         distance_pair = [distance_value, point2value]
         return [distance_pair]
